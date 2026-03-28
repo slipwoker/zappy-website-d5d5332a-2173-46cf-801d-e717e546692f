@@ -3310,11 +3310,11 @@ main { margin-top: 0 !important; padding-top: 0 !important; }
   user-select: none;
 }
 
-/* ── Quote Text ── */
 .index-testimonials-section .index-testimonials-quote {
   margin: 0;
   padding: 0;
   border: none;
+  background: transparent;
 }
 
 .index-testimonials-section .index-testimonials-quote p {
@@ -8003,6 +8003,11 @@ body.accessibility-widget-visible ._access-menu {
 
 .index-testimonials-section .index-testimonials-quote p font {
   color: inherit !important;
+}
+
+.index-testimonials-section .index-testimonials-quote {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* ========== RTL MOBILE NAVBAR FIX (zappy-rtl-mobile-fix) ========== */
