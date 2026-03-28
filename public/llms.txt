@@ -1,0 +1,47 @@
+# Business — Generative Engine Optimization Map
+
+---
+
+## Pages
+
+### בית
+https://example.com
+רוצה להתחיל להשקיע בנדל&quot;ן ולבנות עתיד פיננסי יציב? האקדמיה לנדל&quot;ן ופיננסים בישראל מציעה ידע מקצועי, כלים מעשיים והכשרה מובילה. הצטרף עכשיו!
+
+### תוכניות
+https://example.com/programs
+בחר את תוכנית הלימודים המתאימה לך וצלול לעולם השקעות הנדל&quot;ן עם מומחים מובילים בישראל. קורסים מעשיים, תכנים עדכניים ותוצאות מוכחות מחכים לך כאן.
+
+### אודות
+https://example.com/about
+הכר את הצוות המקצועי שהפך את האקדמיה לנדל&quot;ן ופיננסים בישראל למוסד המוביל בתחומו. ניסיון עשיר, מחויבות לאיכות ואלפי בוגרים מצליחים מדברים בעד עצמם.
+
+### צור קשר
+https://example.com/contact
+יש לך שאלות על קורס השקעות נדל&quot;ן למתחילים או על תוכניות הלימוד שלנו? צור קשר עכשיו עם יועצי האקדמיה וקבל מענה מקצועי שיכוון אותך לדרך הנכונה.
+
+## Legal & Policy
+
+### Privacy Policy
+https://example.com/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://example.com/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://example.com/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+---
+
+# Additional Resources
+
+- **Sitemap**: https://example.com/sitemap.xml
+- **Robots.txt**: https://example.com/robots.txt

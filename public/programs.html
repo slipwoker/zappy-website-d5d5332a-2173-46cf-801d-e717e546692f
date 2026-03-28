@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>תוכניות לימוד שישנו את עתידך הכלכלי — האקדמיה לנדלן ופיננסים בישראל</title>
+    <meta name="description" content="בחר את תוכנית הלימודים המתאימה לך וצלול לעולם השקעות הנדל&quot;ן עם מומחים מובילים בישראל. קורסים מעשיים, תכנים עדכניים ותוצאות מוכחות מחכים לך כאן.">
+    <meta name="keywords" content="קורס השקעות נדל"ן למתחילים, תוכניות לימוד נדל"ן, קורסי פיננסים, השקעות נדל"ן, הכשרה מקצועית בנדל"ן">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: 'd5d5332a-2173-46cf-801d-e717e546692f',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <meta property="og:title" content="תוכניות לימוד שישנו את עתידך הכלכלי — האקדמיה לנדלן ופיננסים בישראל">
+  <meta property="og:description" content="בחר את תוכנית הלימודים המתאימה לך וצלול לעולם השקעות הנדל&quot;ן עם מומחים מובילים בישראל. קורסים מעשיים, תכנים עדכניים ותוצאות מוכחות מחכים לך כאן.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="תוכניות לימוד שישנו את עתידך הכלכלי — האקדמיה לנדלן ופיננסים בישראל">
+  <meta name="twitter:description" content="בחר את תוכנית הלימודים המתאימה לך וצלול לעולם השקעות הנדל&quot;ן עם מומחים מובילים בישראל. קורסים מעשיים, תכנים עדכניים ותוצאות מוכחות מחכים לך כאן.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: var(--text-dark, #333) !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; position: relative !important; min-height: 44px !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; min-width: 0 !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; min-width: 0 !important; padding: 0 !important; line-height: inherit !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: auto !important; background: transparent !important; border: none !important; cursor: pointer !important; color: var(--text-dark) !important; position: static !important; flex-shrink: 0 !important; align-self: stretch !important; z-index: 2 !important; padding: 0 !important; margin: 0 !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; color: var(--text-dark) !important; }
+        .navbar .sub-menu li a, nav.navbar .sub-menu li a, .zappy-products-dropdown .sub-menu a { color: var(--text-dark) !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+
+    <style id="mobile-lang-menu-deployed-css">
+    @media (max-width: 768px) {
+      .lang-switcher,
+      .nav-cta-container .lang-switcher,
+      .nav-container .lang-switcher,
+      .navbar .lang-switcher,
+      .navbar .nav-cta-container .lang-switcher,
+      .nav-icons-left .lang-switcher,
+      .nav-ecommerce-icons .lang-switcher { display: none !important; }
+      .mobile-lang-menu { width: 100%; border-top: 1px solid rgba(128,128,128,0.2); padding: 8px 0 0 0; margin-top: 8px; }
+      .mobile-lang-toggle { display: flex !important; align-items: center; justify-content: space-between; width: 100%; padding: 12px 16px; background: none; border: none; cursor: pointer; font-size: 15px; color: inherit; font-family: inherit; }
+      .mobile-lang-toggle::after { content: ''; display: inline-block; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 0.3s ease; margin-left: 8px; }
+      .mobile-lang-toggle.expanded::after { transform: rotate(-135deg); }
+      .mobile-lang-options { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+      .mobile-lang-options.expanded { max-height: 300px; }
+      .mobile-lang-option { display: flex !important; align-items: center; gap: 10px; padding: 10px 24px; text-decoration: none; color: inherit; font-size: 14px; font-family: inherit; }
+      .mobile-lang-option:hover { background: rgba(128,128,128,0.1); }
+      .mobile-lang-option.active { font-weight: 600; opacity: 0.7; pointer-events: none; }
+      .mobile-lang-option img { width: 20px; height: 20px; border-radius: 50%; }
+    }
+    @media (min-width: 769px) {
+      .mobile-lang-menu { display: none !important; }
+    }
+    </style>
+
+    <style id="zappy-widget-visibility">
+      #mic-access-tool-general-button, .mic-access-tool-general-button,
+      #mic-init-access-tool .mic-access-tool-general-button, #mic-init-access-tool #mic-access-tool-general-button,
+      ._access-icon, #mic-access-tool-box, .mic-access-tool-box,
+      #mic-init-access-tool #mic-access-tool-box, div[id*="mic-access-tool-box"], ._access-menu {
+        display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+      }
+    </style>
+</head>
+<body>
+
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewbox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewbox="0 0 24 24" fill="none" style="display: none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+
+  <button class="phone-header-btn" data-phone="[business_phone]" aria-label="Call">
+    <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+
+  <div class="nav-container">
+    <div class="nav-right-group"><div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/business-logo.webp" alt="האקדמיה לנדלן ופיננסים בישראל" class="logo">
+      </a>
+    </div><ul class="nav-menu" id="navMenu"><li><a href="/programs">תוכניות</a></li><li><a href="/about">אודות</a></li></ul></div>
+
+    
+
+    <div class="nav-cta-container">
+      <a href="/contact" class="nav-cta-btn">צור קשר</a>
+    </div>
+  </div>
+</nav>
+<script>
+
+// Navbar Mobile Menu Toggle and Contrast Fix
+(function() {
+  // Use 'load' event instead of 'DOMContentLoaded' to ensure we run AFTER all other scripts
+  window.addEventListener('load', function() {
+    
+    // FIX MOBILE BUTTON CONTRAST
+    // Detect navbar background color and apply contrasting color to mobile buttons
+    const navbar = document.querySelector('.navbar, nav, header');
+    if (!navbar) {
+      console.log('[Navbar] Navbar element not found');
+      return;
+    }
+    
+    // DECLARE VARIABLES EARLY to avoid Temporal Dead Zone errors
+    // These are used in multiple places below
+    let mobileToggle = document.getElementById('mobileToggle') ||
+                       document.querySelector('.mobile-toggle') ||
+                       document.querySelector('.hamburger') ||
+                       document.querySelector('.hamburger-menu') ||
+                       document.querySelector('.menu-toggle') ||
+                       document.querySelector('.burger-menu') ||
+                       document.querySelector('[aria-label="Menu"]') ||
+                       document.querySelector('[aria-label="תפריט"]');
+    
+    const phoneBtn = document.querySelector('.phone-header-btn');
+    
+    const computedStyle = window.getComputedStyle(navbar);
+    let bgColor = computedStyle.backgroundColor;
+    
+    console.log('[Navbar] Initial navbar background:', bgColor);
+    
+    // Check if background is transparent or rgba with 0 alpha
+    const isTransparent = bgColor === 'transparent' || 
+                         bgColor === 'rgba(0, 0, 0, 0)' ||
+                         (bgColor.startsWith('rgba') && bgColor.includes(', 0)'));
+    
+    if (isTransparent) {
+      // Check for background-image or gradient
+      const bgImage = computedStyle.backgroundImage;
+      if (bgImage && bgImage !== 'none') {
+        console.log('[Navbar] Navbar has background image/gradient, using dark text');
+        bgColor = 'rgb(240, 240, 240)'; // Assume light background
+      } else {
+        // Transparent navbar - check body background
+        const bodyBg = window.getComputedStyle(document.body).backgroundColor;
+        console.log('[Navbar] Navbar transparent, using body background:', bodyBg);
+        bgColor = bodyBg;
+      }
+    }
+    
+    // Calculate luminance to determine if background is light or dark
+    const rgb = bgColor.match(/\d+/g);
+    if (rgb && rgb.length >= 3) {
+      const r = parseInt(rgb[0]);
+      const g = parseInt(rgb[1]);
+      const b = parseInt(rgb[2]);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      
+      // Mobile button colors are set by Claude's AI-generated CSS (same as .nav-menu a)
+      // No dynamic color overrides needed - colors come from the generated navbar CSS
+      console.log('[Navbar] Mobile button colors preserved from Claude CSS (luminance:', luminance.toFixed(2) + ')');
+      
+      // FIX ICON SIZES - Ensure SVGs are properly sized and visible
+      // INJECT CRITICAL CSS TO OVERRIDE ANY CONFLICTING RULES
+      const criticalCSS = document.createElement('style');
+      criticalCSS.id = 'zappy-mobile-nav-fix';
+      const htmlLang = document.documentElement.lang || 'en';
+      const htmlDir = document.documentElement.dir || 'ltr';
+      // Check both dir attribute AND lang for RTL detection
+      // dir="rtl" is the most reliable indicator
+      const isRTL = htmlDir === 'rtl' || htmlLang === 'he' || htmlLang === 'ar';
+      
+      criticalCSS.textContent = `
+        /* Hide mobile buttons on desktop, show only on mobile */
+        @media (min-width: 769px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            display: none !important;
+          }
+        }
+        
+        /* Show and position mobile buttons correctly on mobile */
+        @media (max-width: 768px) {
+          .mobile-toggle,
+          .phone-header-btn {
+            position: absolute !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            z-index: 1001 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 36px !important;
+            height: 36px !important;
+            border-radius: 50% !important;
+            border: none !important;
+            cursor: pointer !important;
+            padding: 6px !important;
+            background: none !important;
+            color: var(--nav-text, var(--text-dark)) !important;
+          }
+          
+          /* LTR positioning (default): hamburger LEFT, phone RIGHT */
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .mobile-toggle,
+          html[dir="ltr"] .mobile-toggle {
+            left: 12px !important;
+            right: auto !important;
+          }
+          html:not([dir="rtl"]):not([lang="he"]):not([lang="ar"]) .phone-header-btn,
+          html[dir="ltr"] .phone-header-btn {
+            right: 12px !important;
+            left: auto !important;
+          }
+          
+          /* RTL positioning: hamburger RIGHT, phone LEFT */
+          html[dir="rtl"] .mobile-toggle,
+          html[lang="he"] .mobile-toggle,
+          html[lang="ar"] .mobile-toggle {
+            right: 12px !important;
+            left: auto !important;
+          }
+          html[dir="rtl"] .phone-header-btn,
+          html[lang="he"] .phone-header-btn,
+          html[lang="ar"] .phone-header-btn {
+            left: 12px !important;
+            right: auto !important;
+          }
+          
+          /* CRITICAL: Ensure nav-container has min-height on mobile */
+          /* All children are positioned absolutely/fixed on mobile, so height:auto collapses to 0 */
+          .nav-container {
+            min-height: 70px !important;
+            position: relative !important;
+          }
+          
+          /* Ensure SVG icons are properly sized and inherit color */
+          .mobile-toggle svg,
+          .phone-header-btn svg {
+            width: 24px !important;
+            height: 24px !important;
+            /* Don't force display - let JavaScript control hamburger/close toggle */
+          }
+          
+          /* Reset nav-cta-container on mobile - remove desktop box-shadow/padding */
+          /* that creates a visible ghost box when CTA button is hidden */
+          .nav-cta-container {
+            box-shadow: none !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide nav-cta-container entirely on mobile when there's no lang-switcher */
+          /* (only the CTA button is inside, and it's hidden on mobile) */
+          .nav-cta-container:not(:has(.lang-switcher)) {
+            display: none !important;
+          }
+          
+          /* CRITICAL: Prevent hero image fade gradient from bleeding over headline text */
+          /* The .image-fade-gradient has bottom: -30px (extends below parent) */
+          /* On mobile stacked layout, this overlaps the h1 text below the image */
+          .hero-image-column {
+            overflow: hidden !important;
+          }
+          .image-fade-gradient {
+            bottom: 0 !important;
+          }
+          
+          /* Hide desktop language switcher on mobile - hamburger menu handles it */
+          /* High specificity to override stored CSS */
+          .lang-switcher,
+          .nav-cta-container .lang-switcher,
+          .nav-container .lang-switcher,
+          .navbar .lang-switcher,
+          .navbar .nav-cta-container .lang-switcher {
+            display: none !important;
+          }
+        }
+      `;
+      
+      // Remove existing fix if present and inject new one
+      const existing = document.getElementById('zappy-mobile-nav-fix');
+      if (existing) existing.remove();
+      document.head.appendChild(criticalCSS);
+      
+      console.log('[Navbar] Critical CSS injected for mobile nav positioning');
+      
+      // ONLY apply inline positioning styles on mobile viewport
+      // On desktop, the CSS handles hiding these buttons with display: none
+      // Inline styles were breaking desktop layout by overriding CSS
+      const isMobileViewport = window.innerWidth <= 768;
+      
+      if (mobileToggle) {
+        // Icon sizing applies to all viewports for consistency
+        const hamburgerIcon = mobileToggle.querySelector('.hamburger-icon');
+        const closeIcon = mobileToggle.querySelector('.close-icon');
+        
+        if (hamburgerIcon) {
+          hamburgerIcon.style.setProperty('width', '24px', 'important');
+          hamburgerIcon.style.setProperty('height', '24px', 'important');
+          hamburgerIcon.style.setProperty('display', 'block', 'important'); // Show hamburger by default
+        }
+        if (closeIcon) {
+          closeIcon.style.setProperty('width', '24px', 'important');
+          closeIcon.style.setProperty('height', '24px', 'important');
+          closeIcon.style.setProperty('display', 'none', 'important'); // Hide close icon by default
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          mobileToggle.style.setProperty('position', 'absolute', 'important');
+          mobileToggle.style.setProperty('top', '50%', 'important');
+          mobileToggle.style.setProperty('transform', 'translateY(-50%)', 'important');
+          mobileToggle.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          
+          console.log('[Navbar] Mobile toggle positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          mobileToggle.style.removeProperty('position');
+          mobileToggle.style.removeProperty('top');
+          mobileToggle.style.removeProperty('transform');
+          mobileToggle.style.removeProperty('z-index');
+          mobileToggle.style.removeProperty('left');
+          mobileToggle.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared mobile toggle inline positioning');
+        }
+      }
+      
+      if (phoneBtn) {
+        // Icon sizing applies to all viewports
+        const phoneIcon = phoneBtn.querySelector('svg');
+        if (phoneIcon) {
+          phoneIcon.style.width = '24px';
+          phoneIcon.style.height = '24px';
+          phoneIcon.setAttribute('width', '24');
+          phoneIcon.setAttribute('height', '24');
+        }
+        
+        // ONLY set positioning inline styles on mobile
+        if (isMobileViewport) {
+          phoneBtn.style.setProperty('position', 'absolute', 'important');
+          phoneBtn.style.setProperty('top', '50%', 'important');
+          phoneBtn.style.setProperty('transform', 'translateY(-50%)', 'important');
+          phoneBtn.style.setProperty('z-index', '1001', 'important');
+          
+          // Clear any inline left/right so CSS can take over based on html[dir]
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          
+          console.log('[Navbar] Phone button positioning applied (mobile viewport)');
+        } else {
+          // On desktop, clear any positioning styles to let CSS handle it
+          phoneBtn.style.removeProperty('position');
+          phoneBtn.style.removeProperty('top');
+          phoneBtn.style.removeProperty('transform');
+          phoneBtn.style.removeProperty('z-index');
+          phoneBtn.style.removeProperty('left');
+          phoneBtn.style.removeProperty('right');
+          console.log('[Navbar] Desktop viewport - cleared phone button inline positioning');
+        }
+      }
+    } else {
+      console.log('[Navbar] Could not parse background color:', bgColor);
+    }
+    
+    // MOBILE MENU TOGGLE
+    // Re-query in case DOM changed (mobileToggle already declared at top of function)
+    mobileToggle = document.getElementById('mobileToggle') ||
+                   document.querySelector('.mobile-toggle') ||
+                   document.querySelector('.hamburger') ||
+                   document.querySelector('.hamburger-menu') ||
+                   document.querySelector('.menu-toggle') ||
+                   document.querySelector('.burger-menu') ||
+                   document.querySelector('[aria-label="Menu"]') ||
+                   document.querySelector('[aria-label="תפריט"]');
+    
+    // EXPANDED SEARCH: Find nav menu by ID or class
+    const navMenu = document.getElementById('navMenu') ||
+                  document.querySelector('.nav-menu') ||
+                  document.querySelector('.nav-links') ||
+                  document.querySelector('nav ul:not(.submenu)');
+    
+    if (!mobileToggle || !navMenu) {
+      console.log('[Navbar] Mobile toggle or menu not found:', { toggle: !!mobileToggle, menu: !!navMenu });
+      return;
+    }
+    
+    // Ensure navMenu has ID for CSS targeting
+    if (!navMenu.id) {
+      navMenu.id = 'navMenu';
+    }
+    
+    console.log('[Navbar] Initializing mobile menu...');
+    
+    // Remove any existing event listeners by cloning the button
+    const newToggle = mobileToggle.cloneNode(true);
+    mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+    
+    // Toggle menu on button click - use newToggle now
+    newToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const hamburgerIcon = this.querySelector('.hamburger-icon');
+      const closeIcon = this.querySelector('.close-icon');
+      const isActive = navMenu.classList.contains('active');
+      
+      if (isActive) {
+        // Close menu
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed');
+      } else {
+        // Open menu
+        navMenu.classList.add('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'none', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'block', 'important');
+        document.body.style.overflow = 'hidden';
+        console.log('[Navbar] Menu opened');
+      }
+    });
+    
+    // Close menu when clicking nav links (but NOT dropdown toggles)
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Don't close if it's a dropdown child (unless it's a real navigation link)
+        if (this.getAttribute('href') === '#') return;
+        
+        const hamburgerIcon = newToggle.querySelector('.hamburger-icon');
+        const closeIcon = newToggle.querySelector('.close-icon');
+        
+        navMenu.classList.remove('active');
+        if (hamburgerIcon) hamburgerIcon.style.setProperty('display', 'block', 'important');
+        if (closeIcon) closeIcon.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = '';
+        console.log('[Navbar] Menu closed (link clicked)');
+      });
+    });
+    
+    // DROPDOWN MENU TOGGLE (for mobile and touch devices)
+    var dropdownToggles = navMenu.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var parent = this.closest('.nav-dropdown');
+        if (!parent) return;
+        
+        // Close other open dropdowns at the same level
+        var siblings = parent.parentNode.querySelectorAll('.nav-dropdown.open');
+        siblings.forEach(function(sib) {
+          if (sib !== parent) sib.classList.remove('open');
+        });
+        
+        parent.classList.toggle('open');
+        console.log('[Navbar] Dropdown toggled:', parent.classList.contains('open') ? 'open' : 'closed');
+      });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-dropdown')) {
+        var openDropdowns = document.querySelectorAll('.nav-dropdown.open');
+        openDropdowns.forEach(function(dd) { dd.classList.remove('open'); });
+      }
+    });
+    
+    console.log('[Navbar] Dropdown handlers initialized for ' + dropdownToggles.length + ' dropdowns');
+    
+    // Phone button functionality (phoneBtn already declared at top of function)
+    if (phoneBtn) {
+      phoneBtn.addEventListener('click', function() {
+        // Get phone number from placeholder in page or use default
+        const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        const phoneNumber = phoneLinks.length > 0 
+          ? phoneLinks[0].getAttribute('href').replace('tel:', '')
+          : '[business_phone]';
+        
+        window.location.href = 'tel:' + phoneNumber;
+        console.log('[Navbar] Phone button clicked');
+      });
+    }
+    
+    console.log('[Navbar] Mobile menu initialized successfully');
+    
+    // === WHATSAPP BUTTON VISIBILITY FIX ===
+    // Ensure WhatsApp floating button is hidden on desktop and visible on mobile
+    // IMPORTANT: Only target the floating button by its class, NOT generic wa.me links
+    const handleWhatsAppVisibility = function() {
+      const whatsappBtn = document.querySelector('.whatsapp-float');
+      if (whatsappBtn) {
+        const isDesktop = window.innerWidth >= 769;
+        if (isDesktop) {
+          whatsappBtn.style.setProperty('display', 'none', 'important');
+          whatsappBtn.style.setProperty('visibility', 'hidden', 'important');
+          whatsappBtn.style.setProperty('opacity', '0', 'important');
+          whatsappBtn.style.setProperty('pointer-events', 'none', 'important');
+          console.log('[WhatsApp] Button hidden on desktop');
+        } else {
+          whatsappBtn.style.removeProperty('display');
+          whatsappBtn.style.removeProperty('visibility');
+          whatsappBtn.style.removeProperty('opacity');
+          whatsappBtn.style.removeProperty('pointer-events');
+          console.log('[WhatsApp] Button visible on mobile');
+        }
+      }
+    };
+    
+    // Run on load
+    handleWhatsAppVisibility();
+    
+    // Run on resize with debouncing
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleWhatsAppVisibility, 100);
+    });
+  });
+})();
+
+</script>
+  
+  <main>
+    <section class="programs-overview-section" data-layout-spec="תוכניות-overview" dir="rtl">
+  <div class="programs-overview-container">
+
+    <!-- Accent Rule -->
+    <div class="programs-overview-accent-rule"></div>
+
+    <!-- Section Header -->
+    <header class="programs-overview-header">
+      <h1 class="programs-overview-title">תוכניות הלימוד שלנו</h1>
+      <p class="programs-overview-lead">האקדמיה לנדל"ן ופיננסים בישראל מציעה מסלולי לימוד מובנים ומקצועיים המותאמים לכל שלב בדרך — ממתחילים המחפשים את הצעד הראשון בהשקעות נדל"ן ועד לאנשי מקצוע המבקשים להעמיק את הידע הפיננסי ולהרחיב את תיק ההשקעות שלהם. כל תוכנית מעוצבת בקפידה כדי להעניק כלים מעשיים, ידע אקדמי מוכח ורשת קשרים מקצועית.</p>
+    </header>
+
+    <!-- Program Cards Grid -->
+    <div class="programs-overview-grid">
+
+      <!-- Card 1: Beginners -->
+      <article class="programs-overview-card">
+        <div class="programs-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="programs-card-content">
+          <div class="programs-card-badge">מסלול מתחילים</div>
+          <h3 class="programs-card-title">יסודות הנדל"ן וההשקעות</h3>
+          <p class="programs-card-desc">קורס השקעות נדל"ן למתחילים המספק את הבסיס המלא: הבנת שוק הנדל"ן הישראלי, עקרונות ניתוח עסקאות, מימון ומשכנתאות, וכלים פיננסיים ראשוניים. מתאים לכל מי שמתחיל את דרכו בעולם ההשקעות.</p>
+          <ul class="programs-card-fit">
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>ללא ניסיון קודם נדרש</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>שכירים ועצמאים המעוניינים להתחיל להשקיע</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>בוגרי תואר ראשון בתחילת הקריירה</span>
+            </li>
+          </ul>
+          <a href="/contact" class="programs-card-cta">לפרטים על המסלול</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Advancing -->
+      <article class="programs-overview-card programs-overview-card--featured">
+        <div class="programs-card-featured-label">הפופולרי ביותר</div>
+        <div class="programs-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+        </div>
+        <div class="programs-card-content">
+          <div class="programs-card-badge">מסלול מתקדמים</div>
+          <h3 class="programs-card-title">ניתוח עסקאות ואסטרטגיות השקעה</h3>
+          <p class="programs-card-desc">תוכנית מעמיקה לבעלי ידע בסיסי המבקשים לשדרג את יכולות הניתוח שלהם: ניתוח תזרים מזומנים, השוואת שווקים, מינוף פיננסי, עסקאות קבוצתיות ואסטרטגיות לבניית תיק נדל"ן מניב בישראל.</p>
+          <ul class="programs-card-fit">
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>משקיעים עם נכס אחד ומעלה</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>יזמים ואנשי עסקים בצמיחה</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>מי שמחפש לגוון את מקורות ההכנסה</span>
+            </li>
+          </ul>
+          <a href="/contact" class="programs-card-cta programs-card-cta--featured">לפרטים על המסלול</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Professional -->
+      <article class="programs-overview-card">
+        <div class="programs-card-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="6"></circle>
+            <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
+          </svg>
+        </div>
+        <div class="programs-card-content">
+          <div class="programs-card-badge">מסלול מקצועי</div>
+          <h3 class="programs-card-title">פיננסים מתקדמים וניהול עושר</h3>
+          <p class="programs-card-desc">תוכנית ייחודית לאנשי מקצוע בתחום הנדל"ן, הפיננסים והמשפט המעוניינים להעמיק בניהול תיקי השקעות, תכנון פיננסי ארוך טווח, מיסוי נדל"ן ואסטרטגיות לשימור והגדלת עושר.</p>
+          <ul class="programs-card-fit">
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>אנשי מקצוע בתחום הנדל"ן והפיננסים</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>מנהלים ובעלי עסקים מנוסים</span>
+            </li>
+            <li>
+              <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>משקיעים עם תיק נכסים מגוון</span>
+            </li>
+          </ul>
+          <a href="/contact" class="programs-card-cta">לפרטים על המסלול</a>
+        </div>
+      </article>
+
+    </div>
+    <!-- End Grid -->
+
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="programs-overview-divider-wrapper">
+    <div class="programs-overview-inset-rule">
+      <div class="programs-overview-notch"></div>
+    </div>
+  </div>
+
+</section>
+
+<section class="programs-curriculum-section" data-layout-spec="תוכניות-curriculum" dir="rtl">
+  <div class="programs-curriculum-container">
+    <div class="programs-curriculum-grid">
+
+      <!-- Content Column (START = Right in RTL) -->
+      <div class="curriculum-content-col">
+        <div class="curriculum-accent-rule"></div>
+        <h2 class="curriculum-heading">תכנית הלימודים שלנו</h2>
+        <p class="curriculum-intro">קורס השקעות נדל"ן למתחילים ומתקדמים של האקדמיה לנדל"ן ופיננסים בישראל בנוי על עמודי תווך מעשיים ומוכחים בשוק. כל מודול מתוכנן להעניק לך כלים שתוכל ליישם מיד — לא רק תיאוריה, אלא ידע אמיתי שמוביל להחלטות השקעה חכמות.</p>
+
+        <ol class="curriculum-pillars">
+
+          <li class="pillar-item">
+            <div class="pillar-number-wrap">
+              <span class="pillar-number">01</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-title">יסודות שוק הנדל"ן בישראל</h3>
+              <p class="pillar-desc">הבנת מבנה השוק הישראלי, מגמות מחירים אזוריות, סוגי נכסים, ומדדים מרכזיים שכל משקיע חייב להכיר לפני שהוא מבצע את עסקתו הראשונה.</p>
+            </div>
+          </li>
+
+          <li class="pillar-item">
+            <div class="pillar-number-wrap">
+              <span class="pillar-number">02</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-title">ניתוח השקעות ובחינת כדאיות</h3>
+              <p class="pillar-desc">שיטות מעשיות לחישוב תשואה, ניתוח תזרים מזומנים, השוואת עסקאות, והערכת שווי נכסים — עם דגש על כלי ניתוח שמשמשים משקיעים מקצועיים בשוק הישראלי.</p>
+            </div>
+          </li>
+
+          <li class="pillar-item">
+            <div class="pillar-number-wrap">
+              <span class="pillar-number">03</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-title">עקרונות מימון ומשכנתאות</h3>
+              <p class="pillar-desc">מסלולי משכנתא, ריביות, מינוף פיננסי ואסטרטגיות מימון חכמות. תלמד כיצד להשתמש בהון זר לטובתך תוך שמירה על יציבות פיננסית לטווח ארוך.</p>
+            </div>
+          </li>
+
+          <li class="pillar-item">
+            <div class="pillar-number-wrap">
+              <span class="pillar-number">04</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-title">ניהול סיכונים והגנה על ההשקעה</h3>
+              <p class="pillar-desc">זיהוי סיכונים נסתרים בעסקאות נדל"ן, בדיקות נאותות, היבטים משפטיים ורגולטוריים, וכיצד לבנות תיק נכסים שמוגן מפני תנודות שוק.</p>
+            </div>
+          </li>
+
+          <li class="pillar-item">
+            <div class="pillar-number-wrap">
+              <span class="pillar-number">05</span>
+            </div>
+            <div class="pillar-body">
+              <h3 class="pillar-title">קבלת החלטות יישומית ואסטרטגיה</h3>
+              <p class="pillar-desc">סימולציות עסקאות אמיתיות, תרגילי החלטה בזמן אמת, ובניית אסטרטגיית השקעה אישית — כך שתצא עם תוכנית פעולה ברורה ולא רק עם ידע תיאורטי.</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+
+      <!-- Image Column (END = Left in RTL) -->
+      <div class="curriculum-image-col">
+        <div class="curriculum-image-wrap">
+          <img data-placeholder="programs-curriculum-image-1" data-context="A bright, professionally staged classroom or workshop setting for a real estate and finance academy in Israel. The room has modern furniture, large windows with natural light, a presentation screen showing financial charts or property data, and a small group of engaged adult students seated around tables with notebooks and laptops. The atmosphere is warm, academic, and aspirational — conveying trust, professionalism, and learning excellence. Clean interior, Israeli context." width="600" height="750" src="/assets/site-programs-curriculum-image-1.webp" alt="כיתת לימוד של האקדמיה לנדל&quot;ן ופיננסים בישראל — סביבה מקצועית ומעוררת השראה">
+          <div class="curriculum-image-badge">
+            <span class="badge-number">5</span>
+            <span class="badge-label">מודולים<br>מעשיים</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom divider: pale panel peeks from END-bottom corner -->
+  <div class="curriculum-divider-wrapper" aria-hidden="true">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 72" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1200,72 L1200,28 Q1100,20 1000,26 T800,22 Q700,26 600,20 T400,24 Q300,20 200,26 T0,22 L0,72 Z" fill="#F3EFE8"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section class="programs-benefits-section" data-layout-spec="תוכניות-benefits" dir="rtl">
+  <div class="programs-benefits-container">
+    <!-- Section Header -->
+    <div class="programs-benefits-header">
+      <span class="programs-benefits-eyebrow">למה ללמוד אצלנו?</span>
+      <h2 class="programs-benefits-title">היתרונות שתקבלו מהתוכניות שלנו</h2>
+      <p class="programs-benefits-subtitle">האקדמיה לנדל"ן ופיננסים בישראל מציעה ידע מעשי, ליווי אישי וכלים מקצועיים שיובילו אתכם להצלחה בעולם ההשקעות</p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="programs-benefits-grid">
+
+      <!-- Card 1 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">בהירות מעשית מהיום הראשון</h3>
+          <p class="programs-benefit-desc">תרכשו הבנה יישומית של עולם הנדל"ן וההשקעות — ידע שניתן לתרגם מיידית להחלטות חכמות בשטח, ללא עקומות למידה מיותרות.</p>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            <path d="M3 9h18"></path>
+            <path d="M9 21V9"></path>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">קבלת החלטות מובנית ומסודרת</h3>
+          <p class="programs-benefit-desc">תלמדו מסגרת שיטתית לניתוח עסקאות נדל"ן — מבחינת שוק, מימון וסיכון — כדי שכל החלטה תתקבל מתוך ביטחון ולא מתוך ניחוש.</p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M6 20v-2a6 6 0 0 1 12 0v2"></path>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">ליווי אישי ממדריכים מומחים</h3>
+          <p class="programs-benefit-desc">המרצים שלנו הם אנשי מקצוע פעילים בשוק הנדל"ן הישראלי. תקבלו גישה ישירה לניסיון אמיתי, לא רק לתיאוריה.</p>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">ביטחון עם מושגים פיננסיים</h3>
+          <p class="programs-benefit-desc">מינוף, תשואה, מימון משכנתאות ותזרים מזומנים — תצאו עם שליטה מלאה במושגים הפיננסיים הקריטיים להשקעות נדל"ן בישראל.</p>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">הבנה מעמיקה של שוק הנדל"ן</h3>
+          <p class="programs-benefit-desc">תבינו כיצד להשקיע בנדל"ן בישראל — מניתוח אזורי ביקוש ועד הערכת פוטנציאל השבחה — ותוכלו לזהות הזדמנויות לפני כולם.</p>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="programs-benefit-card">
+        <div class="programs-benefit-icon-wrap">
+          <svg data-element-type="icon" data-icon-type="svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+        </div>
+        <div class="programs-benefit-content">
+          <h3 class="programs-benefit-title-card">מיצוב מקצועי חזק יותר</h3>
+          <p class="programs-benefit-desc">בוגרי האקדמיה לנדל"ן ופיננסים בישראל נהנים ממוניטין מוכר בשוק — תעודה, ידע ורשת קשרים שפותחים דלתות.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="programs-benefits-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 60" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="benefitsDividerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#1F9D8B" stop-opacity="0.18"></stop>
+          <stop offset="50%" stop-color="#1F9D8B" stop-opacity="0.32"></stop>
+          <stop offset="100%" stop-color="#1F9D8B" stop-opacity="0.18"></stop>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1200" height="2" fill="url(#benefitsDividerGrad)"></rect>
+      <path d="M0,60 L0,18 Q150,8 300,16 T600,10 T900,16 T1200,12 L1200,60 Z" fill="#FAF9F6"></path>
+    </svg>
+  </div>
+
+</section>
+
+<section class="programs-comparison-table-section" data-layout-spec="תוכניות-comparison-table" dir="rtl">
+  <div class="pct-container">
+
+    <!-- Section Header -->
+    <div class="pct-header">
+      <div class="pct-accent-rule"></div>
+      <h2 class="pct-title">השוואה בין מסלולי הלימוד</h2>
+      <p class="pct-subtitle">בחירת המסלול הנכון היא צעד ראשון ומשמעותי במסע הלמידה שלך. כל תוכנית מותאמת לשלב שונה בחיים המקצועיים ולמטרות שונות — בין אם אתה מתחיל לגלות את עולם ההשקעות, מבקש להעמיק את הידע הפיננסי שלך, או שואף לניהול תיק נדל"ן מקצועי. עיין בטבלה המפורטת להלן ובחר את המסלול המתאים ביותר לשאיפותיך.</p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="pct-table-wrapper">
+      <table class="pct-table" role="table" aria-label="השוואה בין מסלולי לימוד">
+        <thead>
+          <tr class="pct-thead-row">
+            <th class="pct-th pct-th-label" scope="col">קריטריון</th>
+            <th class="pct-th pct-th-program" scope="col">
+              <div class="pct-program-header">
+                <span class="pct-program-badge pct-badge-basic">מסלול בסיסי</span>
+                <span class="pct-program-name">יסודות הנדל"ן והפיננסים</span>
+              </div>
+            </th>
+            <th class="pct-th pct-th-program pct-th-featured" scope="col">
+              <div class="pct-program-header">
+                <span class="pct-program-badge pct-badge-advanced">מסלול מתקדם</span>
+                <span class="pct-program-name">ניתוח שוק והשקעות</span>
+              </div>
+            </th>
+            <th class="pct-th pct-th-program" scope="col">
+              <div class="pct-program-header">
+                <span class="pct-program-badge pct-badge-expert">מסלול מקצועי</span>
+                <span class="pct-program-name">ניהול תיק נדל"ן</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- Row 1: Ideal Learner -->
+          <tr class="pct-row">
+            <td class="pct-td pct-td-label">
+              <div class="pct-label-inner">
+                <span class="pct-label-icon" aria-hidden="true">
+                  <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </span>
+                <span class="pct-label-text">הלומד האידיאלי</span>
+              </div>
+            </td>
+            <td class="pct-td">
+              <p class="pct-cell-text">מי שנמצא בתחילת דרכו בעולם ההשקעות, ללא ניסיון קודם, ומחפש בסיס איתן של ידע בנדל"ן ובפיננסים</p>
+            </td>
+            <td class="pct-td pct-td-featured">
+              <p class="pct-cell-text">בעלי ידע בסיסי בשוק, המבקשים להעמיק את יכולות הניתוח שלהם ולהתחיל לבצע השקעות נדל"ן מחושבות</p>
+            </td>
+            <td class="pct-td">
+              <p class="pct-cell-text">אנשי מקצוע ומשקיעים פעילים המעוניינים לנהל תיק נכסים מגוון ולפתח מיומנויות ניהול מקצועיות מתקדמות</p>
+            </td>
+          </tr>
+
+          <!-- Row 2: Subject Focus -->
+          <tr class="pct-row pct-row-alt">
+            <td class="pct-td pct-td-label">
+              <div class="pct-label-inner">
+                <span class="pct-label-icon" aria-hidden="true">
+                  <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </span>
+                <span class="pct-label-text">תחומי לימוד</span>
+              </div>
+            </td>
+            <td class="pct-td">
+              <ul class="pct-cell-list">
+                <li>מושגי יסוד בנדל"ן</li>
+                <li>עקרונות פיננסיים בסיסיים</li>
+                <li>היכרות עם שוק הנכסים</li>
+                <li>מינוף ומימון ראשוני</li>
+              </ul>
+            </td>
+            <td class="pct-td pct-td-featured">
+              <ul class="pct-cell-list pct-cell-list-featured">
+                <li>ניתוח שוק מעמיק</li>
+                <li>הערכת שווי נכסים</li>
+                <li>אסטרטגיות השקעה מגוונות</li>
+                <li>ניהול סיכונים פיננסיים</li>
+              </ul>
+            </td>
+            <td class="pct-td">
+              <ul class="pct-cell-list">
+                <li>ניהול תיק נכסים</li>
+                <li>עסקאות מורכבות ומיסוי</li>
+                <li>פיתוח ובנייה</li>
+                <li>ניהול פיננסי מתקדם</li>
+              </ul>
+            </td>
+          </tr>
+
+          <!-- Row 3: Practical Depth -->
+          <tr class="pct-row">
+            <td class="pct-td pct-td-label">
+              <div class="pct-label-inner">
+                <span class="pct-label-icon" aria-hidden="true">
+                  <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </span>
+                <span class="pct-label-text">עומק מעשי</span>
+              </div>
+            </td>
+            <td class="pct-td">
+              <div class="pct-depth-meter">
+                <div class="pct-depth-bar"><div class="pct-depth-fill" style="width:33%"></div></div>
+                <span class="pct-depth-label">בסיסי — תרגילים מונחים</span>
+              </div>
+              <p class="pct-cell-text">סימולציות פשוטות, ניתוח עסקאות לדוגמה ולימוד מקרי בוחן מהשוק הישראלי</p>
+            </td>
+            <td class="pct-td pct-td-featured">
+              <div class="pct-depth-meter">
+                <div class="pct-depth-bar"><div class="pct-depth-fill pct-depth-fill-featured" style="width:66%"></div></div>
+                <span class="pct-depth-label">מתקדם — פרויקטים אמיתיים</span>
+              </div>
+              <p class="pct-cell-text">ניתוח עסקאות נדל"ן חיות, בניית תוכניות עסקיות ועבודה עם נתוני שוק עדכניים</p>
+            </td>
+            <td class="pct-td">
+              <div class="pct-depth-meter">
+                <div class="pct-depth-bar"><div class="pct-depth-fill pct-depth-fill-expert" style="width:100%"></div></div>
+                <span class="pct-depth-label">מקצועי — ליווי עסקאות</span>
+              </div>
+              <p class="pct-cell-text">ניהול תיק נכסים מלא, ליווי עסקאות בפועל ועבודה צמודה עם מומחי האקדמיה</p>
+            </td>
+          </tr>
+
+          <!-- Row 4: Expected Outcome -->
+          <tr class="pct-row pct-row-alt pct-row-outcome">
+            <td class="pct-td pct-td-label">
+              <div class="pct-label-inner">
+                <span class="pct-label-icon" aria-hidden="true">
+                  <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </span>
+                <span class="pct-label-text">תוצאה צפויה</span>
+              </div>
+            </td>
+            <td class="pct-td">
+              <p class="pct-cell-text pct-outcome-text">הבנה מוצקה של שוק הנדל"ן הישראלי, יכולת לזהות הזדמנויות השקעה ראשונות ובניית תשתית פיננסית אישית</p>
+            </td>
+            <td class="pct-td pct-td-featured">
+              <p class="pct-cell-text pct-outcome-text">יכולת לבצע עסקאות נדל"ן עצמאיות, ניתוח מקצועי של הזדמנויות ובניית אסטרטגיית השקעה אישית ממוקדת</p>
+            </td>
+            <td class="pct-td">
+              <p class="pct-cell-text pct-outcome-text">ניהול תיק נכסים רווחי, מיומנויות ברמה מקצועית-עסקית ויכולת לפתח פעילות נדל"ן עצמאית</p>
+            </td>
+          </tr>
+
+          <!-- Row 5: Duration -->
+          <tr class="pct-row">
+            <td class="pct-td pct-td-label">
+              <div class="pct-label-inner">
+                <span class="pct-label-icon" aria-hidden="true">
+                  <svg data-element-type="icon" data-icon-type="svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="pct-label-text">משך הלימודים</span>
+              </div>
+            </td>
+            <td class="pct-td">
+              <span class="pct-duration-badge">3 חודשים</span>
+            </td>
+            <td class="pct-td pct-td-featured">
+              <span class="pct-duration-badge pct-duration-featured">6 חודשים</span>
+            </td>
+            <td class="pct-td">
+              <span class="pct-duration-badge">12 חודשים</span>
+            </td>
+          </tr>
+
+          <!-- Row 6: CTA -->
+          <tr class="pct-row pct-row-cta">
+            <td class="pct-td pct-td-label pct-td-cta-label">
+              <span class="pct-label-text">התחל עכשיו</span>
+            </td>
+            <td class="pct-td pct-td-cta">
+              <a href="/contact" class="pct-cta-btn pct-cta-secondary">לפרטים נוספים</a>
+            </td>
+            <td class="pct-td pct-td-featured pct-td-cta">
+              <a href="/contact" class="pct-cta-btn pct-cta-primary">הרשמה למסלול</a>
+            </td>
+            <td class="pct-td pct-td-cta">
+              <a href="/contact" class="pct-cta-btn pct-cta-secondary">לפרטים נוספים</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bottom Note -->
+    <p class="pct-footnote">* כל המסלולים כוללים גישה לחומרי לימוד דיגיטליים, פורום קהילתי ותמיכת מנטורים מהאקדמיה לנדל"ן ופיננסים בישראל. לייעוץ אישי בבחירת המסלול — <a href="/contact" class="pct-footnote-link">צרו קשר עם הצוות שלנו</a>.</p>
+  </div>
+
+  <!-- Bottom Divider -->
+  <div class="pct-divider-wrapper">
+    <svg data-no-icon-edit="true" aria-hidden="true" viewbox="0 0 1200 80" preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L0,48 Q100,38 200,44 T400,40 Q500,36 600,42 T800,38 Q900,34 1000,42 T1200,44 L1200,80 Z" fill="#16324F"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="programs-success-stories-section" data-layout-spec="תוכניות-success-stories" dir="rtl">
+  <div class="pss-container">
+
+    <div class="pss-header">
+      <span class="pss-eyebrow">סיפורי הצלחה</span>
+      <div class="pss-accent-line"></div>
+      <h2 class="pss-title">בוגרים שהפכו ידע להזדמנות</h2>
+      <p class="pss-subtitle">אנשים שהגיעו אלינו עם שאלות ועזבו עם כלים, ביטחון ותוצאות מדידות בשוק הנדל"ן והפיננסים בישראל.</p>
+    </div>
+
+    <div class="pss-grid">
+
+      <!-- Card 1 -->
+      <article class="pss-card">
+        <div class="pss-card-top">
+          <div class="pss-avatar-wrap">
+            <img data-placeholder="success-story-portrait-1" data-context="Professional headshot of an Israeli woman in her 40s, confident smile, business casual attire, neutral studio background, warm lighting" src="/assets/site-success-story-portrait-1.webp" alt="רחל כהן - בוגרת האקדמיה לנדלן ופיננסים" width="64" height="64" class="pss-avatar">
+          </div>
+          <div class="pss-identity">
+            <h3 class="pss-name">רחל כהן</h3>
+            <span class="pss-role">מורה, 44</span>
+          </div>
+        </div>
+        <div class="pss-brass-rule"></div>
+        <div class="pss-body">
+          <div class="pss-block">
+            <span class="pss-label">האתגר</span>
+            <p class="pss-text">חסכתי שנים אך לא ידעתי כיצד להשקיע בנדל"ן בישראל בצורה נכונה. חשתי שהידע הפיננסי שלי לא מספיק.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">החוויה</span>
+            <p class="pss-text">הקורס נתן לי מסגרת מובנית להבין ניתוח עסקאות, מימון ומיסוי. המרצים דיברו בגובה העיניים ועם דוגמאות ישראליות אמיתיות.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">התוצאה</span>
+            <p class="pss-text">רכשתי דירה להשקעה בפריפריה תוך שישה חודשים מסיום הקורס, עם תשואה שנתית של כ-5.8%.</p>
+          </div>
+        </div>
+        <div class="pss-card-footer">
+          <i class="fa-solid fa-quote-right pss-quote-icon" aria-hidden="true"></i>
+          <blockquote class="pss-quote">"לראשונה הרגשתי שיש לי את הכלים לפעול בשוק הנדל"ן בביטחון מלא."</blockquote>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="pss-card">
+        <div class="pss-card-top">
+          <div class="pss-avatar-wrap">
+            <img data-placeholder="success-story-portrait-2" data-context="Professional headshot of an Israeli man in his 30s, clean-shaven, confident expression, smart casual shirt, soft neutral background" src="/assets/site-success-story-portrait-2.webp" alt="יוסי לוי - בוגר האקדמיה לנדלן ופיננסים" width="64" height="64" class="pss-avatar">
+          </div>
+          <div class="pss-identity">
+            <h3 class="pss-name">יוסי לוי</h3>
+            <span class="pss-role">מהנדס תוכנה, 33</span>
+          </div>
+        </div>
+        <div class="pss-brass-rule"></div>
+        <div class="pss-body">
+          <div class="pss-block">
+            <span class="pss-label">האתגר</span>
+            <p class="pss-text">הכנסה טובה אבל ללא אסטרטגיה פיננסית. לא הבנתי איך לגרום לכסף לעבוד בשבילי מעבר לחיסכון פשוט.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">החוויה</span>
+            <p class="pss-text">קורס השקעות נדל"ן למתחילים פתח לי עולם שלם. למדתי לנתח שווקים, להעריך נכסים ולהבין מבני מימון שלא הכרתי.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">התוצאה</span>
+            <p class="pss-text">בניתי תיק נדל"ן של שתי דירות בשנתיים. ההכנסה הפסיבית החודשית מכסה כיום כשליש מהוצאות המחיה שלי.</p>
+          </div>
+        </div>
+        <div class="pss-card-footer">
+          <i class="fa-solid fa-quote-right pss-quote-icon" aria-hidden="true"></i>
+          <blockquote class="pss-quote">"האקדמיה לנדל"ן ופיננסים בישראל שינתה את הדרך שבה אני חושב על כסף ועתיד."</blockquote>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="pss-card">
+        <div class="pss-card-top">
+          <div class="pss-avatar-wrap">
+            <img data-placeholder="success-story-portrait-3" data-context="Professional headshot of an Israeli woman in her late 50s, warm professional look, blazer, natural smile, clean light background" src="/assets/site-success-story-portrait-3.webp" alt="מירה שפירא - בוגרת האקדמיה לנדלן ופיננסים" width="64" height="64" class="pss-avatar">
+          </div>
+          <div class="pss-identity">
+            <h3 class="pss-name">מירה שפירא</h3>
+            <span class="pss-role">רואת חשבון, 57</span>
+          </div>
+        </div>
+        <div class="pss-brass-rule"></div>
+        <div class="pss-body">
+          <div class="pss-block">
+            <span class="pss-label">האתגר</span>
+            <p class="pss-text">בגיל 55 הבנתי שהפנסיה לבדה לא תספיק. חיפשתי דרך להגדיל את הביטחון הכלכלי לקראת הגמלאות.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">החוויה</span>
+            <p class="pss-text">הלימודים היו מדויקים, מקצועיים ומותאמים לשוק הישראלי. קיבלתי תמונה שלמה של אפיקי ההשקעה הרלוונטיים לגילי.</p>
+          </div>
+          <div class="pss-block">
+            <span class="pss-label">התוצאה</span>
+            <p class="pss-text">גיוונתי את תיק ההשקעות שלי, הפחתתי חשיפה לסיכון ויצרתי הכנסה משלימה שנותנת לי שקט נפשי אמיתי.</p>
+          </div>
+        </div>
+        <div class="pss-card-footer">
+          <i class="fa-solid fa-quote-right pss-quote-icon" aria-hidden="true"></i>
+          <blockquote class="pss-quote">"לא ציפיתי שאלמד כל כך הרבה בזמן קצר. הידע שקיבלתי שווה הרבה יותר מהמחיר ששילמתי."</blockquote>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="pss-bottom-stat-row">
+      <div class="pss-stat">
+        <span class="pss-stat-number">2,400+</span>
+        <span class="pss-stat-label">בוגרים</span>
+      </div>
+      <div class="pss-stat-divider" aria-hidden="true"></div>
+      <div class="pss-stat">
+        <span class="pss-stat-number">94%</span>
+        <span class="pss-stat-label">שביעות רצון</span>
+      </div>
+      <div class="pss-stat-divider" aria-hidden="true"></div>
+      <div class="pss-stat">
+        <span class="pss-stat-number">8+</span>
+        <span class="pss-stat-label">שנות פעילות</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer" dir="rtl">
+  <div class="footer-main">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Company Info -->
+        <div class="footer-col footer-col--brand">
+          <div class="footer-logo-wrap">
+            <img src="/assets/business-logo.webp" alt="האקדמיה לנדלן ופיננסים בישראל" class="logo">
+          </div>
+          <p class="footer-tagline">מובילים בחינוך נדל"ן ופיננסים בישראל. מעצבים את דור המשקיעים הבא עם ידע, כלים ומיומנויות מעשיות.</p>
+          <div class="footer-accent-line"></div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h3 class="footer-heading">ניווט מהיר</h3>
+          <ul class="footer-links">
+            <li><a href="/programs"><i class="fas fa-chevron-left footer-link-icon"></i>תוכניות לימוד</a></li>
+            <li><a href="/about"><i class="fas fa-chevron-left footer-link-icon"></i>אודות</a></li>
+            <li><a href="/contact"><i class="fas fa-chevron-left footer-link-icon"></i>צור קשר</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-col">
+          <h3 class="footer-heading">יצירת קשר</h3>
+          <ul class="footer-contact">
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:[business_email]">[business_email]</a>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-phone"></i></span>
+              <a href="tel:[business_phone]">[business_phone]</a>
+            </li>
+            <li><a href="/"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <span class="contact-text">[business_address]</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-col footer-col--social">
+          <h3 class="footer-heading">עקבו אחרינו</h3>
+          <div class="footer-social-grid">
+            <a href="[facebook_handle]" aria-label="Facebook" class="social-btn"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+            <a href="[instagram_handle]" aria-label="Instagram" class="social-btn"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+            <a href="[whatsapp_handle]" aria-label="WhatsApp" class="social-btn social-btn--whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+          </div>
+          <div class="footer-badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>מוסד מוכר ומפוקח</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <div class="footer-bottom-inner">
+        <p class="footer-copyright">© 2026 האקדמיה לנדלן ופיננסים בישראל. כל הזכויות שמורות.</p>
+        <div class="footer-legal">
+          <a href="/privacy">מדיניות פרטיות</a>
+          <span class="footer-sep" aria-hidden="true"></span>
+          <a href="/terms">תנאי שימוש</a>
+          <span class="footer-sep" aria-hidden="true"></span>
+          <a href="/accessibility">נגישות</a>
+          <span class="footer-sep" aria-hidden="true"></span>
+          <a href="https://zappy5.com" target="_blank" class="zappy-attribution">נוצר באמצעות Zappy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <div data-integration="accessibility:toolbar"></div>
+
+    <script src="/script.js"></script>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+
+    <script id="zappy-mobile-lang-menu-script">
+    (function() {
+      function initMobileLangMenu() {
+        if (window.innerWidth > 768) {
+          var existingMenu = document.querySelector('.mobile-lang-menu');
+          if (existingMenu) existingMenu.remove();
+          return;
+        }
+        if (document.querySelector('.mobile-lang-menu')) return;
+        var switcher = document.querySelector('.lang-switcher');
+        if (!switcher) return;
+        var dropdown = switcher.querySelector('.lang-switcher-dropdown');
+        if (!dropdown) return;
+        var options = dropdown.querySelectorAll('.lang-option');
+        if (options.length === 0) return;
+        var navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu') || document.querySelector('nav ul');
+        if (!navMenu) return;
+        var currentLang = document.documentElement.lang || 'en';
+        var langConfigs = {
+          he: {name:'עברית',flag:'https://api.iconify.design/circle-flags/il.svg'},
+          en: {name:'English',flag:'https://api.iconify.design/circle-flags/us.svg'},
+          ar: {name:'العربية',flag:'https://api.iconify.design/circle-flags/sa.svg'},
+          fr: {name:'Français',flag:'https://api.iconify.design/circle-flags/fr.svg'},
+          es: {name:'Español',flag:'https://api.iconify.design/circle-flags/es.svg'},
+          de: {name:'Deutsch',flag:'https://api.iconify.design/circle-flags/de.svg'},
+          ru: {name:'Русский',flag:'https://api.iconify.design/circle-flags/ru.svg'},
+          zh: {name:'中文',flag:'https://api.iconify.design/circle-flags/cn.svg'},
+          ja: {name:'日本語',flag:'https://api.iconify.design/circle-flags/jp.svg'},
+          pt: {name:'Português',flag:'https://api.iconify.design/circle-flags/br.svg'},
+          it: {name:'Italiano',flag:'https://api.iconify.design/circle-flags/it.svg'},
+          ko: {name:'한국어',flag:'https://api.iconify.design/circle-flags/kr.svg'}
+        };
+        var container = document.createElement('div');
+        container.className = 'mobile-lang-menu';
+        var currentConfig = langConfigs[currentLang] || {name:currentLang,flag:''};
+        var toggleBtn = document.createElement('button');
+        toggleBtn.className = 'mobile-lang-toggle';
+        toggleBtn.type = 'button';
+        var currentFlagHtml = currentConfig.flag ? '<img src="' + currentConfig.flag + '" width="20" height="20" alt="" style="border-radius:50%;margin-right:8px;margin-left:8px;">' : '';
+        toggleBtn.innerHTML = currentFlagHtml + currentConfig.name;
+        container.appendChild(toggleBtn);
+        var optionsDiv = document.createElement('div');
+        optionsDiv.className = 'mobile-lang-options';
+        var currentLink = document.createElement('a');
+        currentLink.className = 'mobile-lang-option active';
+        currentLink.href = '#';
+        currentLink.innerHTML = currentFlagHtml + currentConfig.name;
+        optionsDiv.appendChild(currentLink);
+        options.forEach(function(opt) {
+          var link = document.createElement('a');
+          link.className = 'mobile-lang-option';
+          link.href = opt.getAttribute('href');
+          link.innerHTML = opt.innerHTML;
+          optionsDiv.appendChild(link);
+        });
+        container.appendChild(optionsDiv);
+        navMenu.appendChild(container);
+        toggleBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleBtn.classList.toggle('expanded');
+          optionsDiv.classList.toggle('expanded');
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileLangMenu); }
+      else { initMobileLangMenu(); }
+      window.addEventListener('resize', function() { clearTimeout(window._mlrt); window._mlrt = setTimeout(initMobileLangMenu, 250); });
+    })();
+    </script>
+</body>
+</html>
